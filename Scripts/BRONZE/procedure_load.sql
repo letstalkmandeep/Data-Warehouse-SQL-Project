@@ -1,3 +1,48 @@
+/*==============================================================================
+  Script Name : Bronze Layer - Load Procedure
+  Object      : bronze.load_bronze()
+  Layer       : Bronze
+
+  Purpose:
+  This stored procedure loads raw data from external CSV files into the
+  Bronze layer of the Data Warehouse.
+
+  Description:
+  The procedure performs the following operations:
+
+  1. Captures the procedure start time.
+  2. Displays execution progress using RAISE NOTICE.
+  3. Truncates all existing CRM Bronze tables.
+  4. Loads fresh CRM data from CSV files using the COPY command.
+  5. Truncates all existing ERP Bronze tables.
+  6. Loads fresh ERP data from CSV files using the COPY command.
+  7. Displays completion messages for each source system.
+  8. Captures the procedure end time.
+  9. Calculates and displays the total execution duration.
+
+  Source Systems:
+      • CRM
+      • ERP
+
+  Tables Loaded:
+      CRM
+      - bronze.crm_cst_info
+      - bronze.crm_prd_info
+      - bronze.crm_sales_details
+
+      ERP
+      - bronze.erp_cust_az12
+      - bronze.erp_loc_a101
+      - bronze.erp_px_cat_g1v2
+
+  Notes:
+      • Existing data is removed using TRUNCATE before loading.
+      • COPY is used for high-performance bulk data loading.
+      • CSV files must exist at the specified file paths and be accessible
+        by the PostgreSQL server.
+==============================================================================*/
+
+
 CREATE OR REPLACE PROCEDURE bronze.load_bronze()
 LANGUAGE plpgsql
 AS $$
