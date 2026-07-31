@@ -1,3 +1,62 @@
+/*==============================================================================
+  Script Name : Silver Layer - Data Load Procedure
+  Object      : silver.load_silver()
+  Layer       : Silver
+
+  Purpose:
+  Load, cleanse, standardize, and transform raw data from the Bronze layer
+  into the Silver layer of the Data Warehouse.
+
+  Description:
+  This procedure performs the following operations:
+
+  1. Records the procedure start time and execution duration.
+  2. Displays execution progress using RAISE NOTICE.
+  3. Truncates all Silver tables before loading fresh data.
+  4. Cleans and standardizes CRM data:
+       • Removes duplicate customer records.
+       • Trims leading/trailing spaces.
+       • Standardizes marital status and gender values.
+       • Splits product keys into Category ID and Sales Product Key.
+       • Replaces NULL product costs with 0.
+       • Converts product line codes into descriptive values.
+       • Calculates product end dates using LEAD().
+       • Converts integer date fields into DATE.
+       • Validates sales amounts and prices.
+  5. Cleans and standardizes ERP data:
+       • Removes unwanted customer ID prefixes.
+       • Validates future birth dates.
+       • Standardizes gender values.
+       • Cleans customer IDs.
+       • Converts country codes into country names.
+       • Removes unnecessary whitespace from category fields.
+  6. Loads the transformed data into the Silver tables.
+  7. Displays execution completion messages and total runtime.
+
+  Source Layer:
+      • Bronze
+
+  Target Layer:
+      • Silver
+
+  Tables Loaded:
+      CRM
+      - silver.crm_cst_info
+      - silver.crm_prd_info
+      - silver.crm_sales_details
+
+      ERP
+      - silver.erp_cust_az12
+      - silver.erp_loc_a101
+      - silver.erp_px_cat_g1v2
+
+  Notes:
+      • Existing data is removed using TRUNCATE before every load.
+      • This procedure performs data quality checks and business rule
+        transformations before loading into the Silver layer.
+      • The Silver layer serves as the foundation for the Gold layer.
+==============================================================================*/
+
 CREATE OR REPLACE PROCEDURE silver.load_silver()
 LANGUAGE plpgsql
 AS $$
@@ -178,7 +237,7 @@ BEGIN
 	RAISE NOTICE '============================================================';
 	end_time:= clock_timestamp();
 	RAISE NOTICE 'ENDED AT: %',end_time;
-	RAISE NOTICE 'TOTAL DIRATION: %', start_time - end_time;
+	RAISE NOTICE 'TOTAL DIRATION: %', end_time - start_time;
 
 END;
 $$;
