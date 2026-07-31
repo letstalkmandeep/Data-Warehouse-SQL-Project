@@ -1,71 +1,105 @@
--- Create Table Crm
---Cst_info
+/*==============================================================================
+  Script Name : Bronze Layer - Table Creation
+  Layer       : Bronze
+  Purpose     : Create all raw staging tables for the CRM and ERP source systems.
 
-DROP table if exists bronze.crm_cst_info;
-create table bronze.crm_cst_info (
-	cst_id	int	,
-	cst_key	varchar(50),	
-	cst_firstname	varchar(50),		
-	cst_lastname	varchar(50),		
-	cst_marital_status	varchar(50),		
-	cst_gndr	varchar(50),		
-	cst_create_date	date		
+  Description:
+  This script performs the following tasks:
+
+  1. Drops existing Bronze tables (if they exist) to enable clean recreation.
+  2. Creates raw staging tables for CRM data:
+       - Customer Information
+       - Product Information
+       - Sales Details
+  3. Creates raw staging tables for ERP data.
+  4. Defines the initial table schema using appropriate data types.
+  5. These tables are intended to store raw source data before any
+     cleansing or transformation in the Silver layer.
+
+  Source Systems:
+     • CRM
+     • ERP
+==============================================================================*/
+
+
+/*==============================================================================
+    CRM TABLES
+==============================================================================*/
+
+-- Customer Information
+DROP TABLE IF EXISTS bronze.crm_cst_info;
+
+CREATE TABLE bronze.crm_cst_info (
+    cst_id               INT,
+    cst_key              VARCHAR(50),
+    cst_firstname        VARCHAR(50),
+    cst_lastname         VARCHAR(50),
+    cst_marital_status   VARCHAR(50),
+    cst_gndr             VARCHAR(50),
+    cst_create_date      DATE
 );
 
 
--- pro_info
-DROP table if exists bronze.crm_prd_info;
-create table bronze.crm_prd_info (
-prd_id	int	,
-prd_key	varchar(50),	
-prd_nm	varchar(50),		
-prd_cost	int,		
-prd_line	varchar(50),		
-prd_start_dt	date,		
-prd_end_dt	date		
+-- Product Information
+DROP TABLE IF EXISTS bronze.crm_prd_info;
+
+CREATE TABLE bronze.crm_prd_info (
+    prd_id               INT,
+    prd_key              VARCHAR(50),
+    prd_nm               VARCHAR(50),
+    prd_cost             INT,
+    prd_line             VARCHAR(50),
+    prd_start_dt         DATE,
+    prd_end_dt           DATE
 );
 
 
--- sales.details
+-- Sales Details
+DROP TABLE IF EXISTS bronze.crm_sales_details;
 
-DROP table if exists bronze.crm_sales_details;
-create table bronze.crm_sales_details(
-sls_ord_num	varchar(50)	,
-sls_prd_key	varchar(50),	
-sls_cust_id	int,		
-sls_order_dt	int,		
-sls_ship_dt	int,		
-sls_due_dt	int,		
-sls_sales	int,		
-sls_quantity	int,		
-sls_price	int		
+CREATE TABLE bronze.crm_sales_details (
+    sls_ord_num          VARCHAR(50),
+    sls_prd_key          VARCHAR(50),
+    sls_cust_id          INT,
+    sls_order_dt         INT,
+    sls_ship_dt          INT,
+    sls_due_dt           INT,
+    sls_sales            INT,
+    sls_quantity         INT,
+    sls_price            INT
 );
 
 
 
--- Create Table Erp
--- Cust_AZ12
-DROP table if exists bronze.erp_cust_az12;
-create table bronze.erp_cust_az12 (
-CID	varchar(50)	,
-BDATE	date,		
-GEN	varchar(50)		
-);
+/*==============================================================================
+    ERP TABLES
+==============================================================================*/
 
--- LOC_A101
-DROP table if exists bronze.erp_LOC_A101;
-create table bronze.erp_LOC_A101 (
-CID varchar(50) ,
-CNTRY varchar(50)
+-- Customer Information
+DROP TABLE IF EXISTS bronze.erp_cust_az12;
+
+CREATE TABLE bronze.erp_cust_az12 (
+    cid                  VARCHAR(50),
+    bdate                DATE,
+    gen                  VARCHAR(50)
 );
 
 
--- PX_CAT_G1V2
+-- Customer Location
+DROP TABLE IF EXISTS bronze.erp_loc_a101;
 
-DROP table if exists bronze.erp_PX_CAT_G1V2;
-create table bronze.erp_PX_CAT_G1V2 (
-ID	varchar(50),
-CAT	varchar(50),
-SUBCAT	varchar(50),
-MAINTENANCE	varchar(50)
+CREATE TABLE bronze.erp_loc_a101 (
+    cid                  VARCHAR(50),
+    cntry                VARCHAR(50)
+);
+
+
+-- Product Category
+DROP TABLE IF EXISTS bronze.erp_px_cat_g1v2;
+
+CREATE TABLE bronze.erp_px_cat_g1v2 (
+    id                   VARCHAR(50),
+    cat                  VARCHAR(50),
+    subcat               VARCHAR(50),
+    maintenance          VARCHAR(50)
 );
