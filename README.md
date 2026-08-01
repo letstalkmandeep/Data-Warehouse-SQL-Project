@@ -358,21 +358,6 @@ This sequence will:
 
 ---
 
-# 📈 Future Enhancements
-
-Planned improvements for future versions of this project include:
-
-- Incremental ETL Loading
-- Change Data Capture (CDC)
-- Workflow Automation
-- Query Performance Optimization
-- Power BI Dashboard Integration
-- Data Catalog & Documentation
-- Cloud Data Warehouse Deployment
-- CI/CD Pipeline for SQL Deployment
-
----
-
 # 📄 License
 
 This project is licensed under the **MIT License**.
