@@ -83,15 +83,6 @@ Each layer has a specific responsibility to ensure data quality, scalability, an
 | 🥈 Silver | Cleanses, standardizes, validates, and transforms raw data into consistent datasets. |
 | 🥇 Gold | Creates business-ready dimensional models using Fact and Dimension tables for analytical workloads. |
 
-### Key Design Principles
-
-- Layered Medallion Architecture
-- Separation of Raw and Business Data
-- Automated ETL using Stored Procedures
-- Data Quality Validation
-- Star Schema Data Modeling
-- Modular and Scalable Design
-
 ---
 
 # 🔄 Data Flow
@@ -99,7 +90,7 @@ Each layer has a specific responsibility to ensure data quality, scalability, an
 The ETL pipeline integrates multiple operational systems into a centralized Data Warehouse following a structured transformation process.
 
 <p align="center">
-    <img src="docs/data-flow.png" alt="Data Flow" width="900"/>
+    <img src="docs/data_flow.png" alt="Data Flow" width="900"/>
 </p>
 
 ### ETL Workflow
