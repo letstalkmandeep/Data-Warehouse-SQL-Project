@@ -24,13 +24,13 @@ A modern Data Warehouse solution built with PostgreSQL that integrates CRM and E
 
 # 📖 Project Overview
 
-Modern organizations often collect data from multiple operational systems, making it difficult to perform reliable analytics due to inconsistent formats, duplicate records, and poor data quality.
+In modern organizations, there is always a challenge when trying to analyze data from various sources since the data may have inconsistency in formatting, duplicates, and poor data quality.
 
-This project demonstrates the design and implementation of a complete **Data Warehouse** using **PostgreSQL**, following the industry-standard **Medallion Architecture (Bronze → Silver → Gold)**.
+In this project, we create a Data Warehouse with PostgreSQL as a database technology, based on the industry standard Medallion Architecture (Bronze → Silver → Gold).
 
-The solution integrates CRM and ERP datasets into a centralized warehouse through an ETL pipeline powered by **Stored Procedures**. Raw source data is ingested into the Bronze layer, transformed and standardized in the Silver layer, and finally modeled into business-ready Gold views using a **Star Schema** consisting of Fact and Dimension tables.
+For this project, we combine data from two sources in one Data Warehouse with the help of ETL process implemented via Stored Procedures. We load raw data into the Bronze layer, transform and clean up data in the Silver layer, and model it into business-friendly data views in the Gold layer in the form of Star Schema including Fact and Dimension tables.
 
-The project emphasizes clean architecture, data quality validation, reusable SQL development, and scalable warehouse design to prepare trusted analytical datasets for reporting, business intelligence, and future data analytics applications.
+This project focuses on creating clear architecture, data validation, reusing SQL development efforts, and designing an effective Data Warehouse.
 
 ---
 
@@ -47,22 +47,6 @@ The project emphasizes clean architecture, data quality validation, reusable SQL
 - Perform data cleansing, validation, and standardization.
 - Design a Star Schema with Fact and Dimension tables.
 - Deliver business-ready datasets optimized for analytical workloads.
-
----
-
-## ✨ Key Features
-
-- Layered Data Warehouse Architecture
-- PostgreSQL-based ETL Pipeline
-- Bronze, Silver & Gold Layers
-- Automated Data Loading using Stored Procedures
-- Data Cleaning & Standardization
-- Data Quality Validation Framework
-- Star Schema Data Modeling
-- Fact & Dimension Tables
-- Business-Ready Gold Views
-- Modular SQL Project Structure
-- Scalable and Maintainable Design
 
 ---
 
