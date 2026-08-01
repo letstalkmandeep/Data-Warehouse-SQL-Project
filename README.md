@@ -371,11 +371,9 @@ For more information, see the **LICENSE** file in this repository.
 # 🤝 Connect With Me
 
 <p align="center">
-
-<a href="https://www.linkedin.com/in/mandeep-singh-56333937b" target="_blank">
-<img src="https://img.shields.io/badge/LinkedIn-Mandeep%20Singh-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+<a href="https://www.linkedin.com/in/mandeep-singh-56333937b">
+<img src="https://img.shields.io/badge/LinkedIn-Mandeep%20Singh-lightgrey?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0077B5"/>
 </a>
-
 </p>
 
 ---
