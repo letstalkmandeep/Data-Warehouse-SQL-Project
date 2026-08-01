@@ -160,62 +160,21 @@ Data-Warehouse-SQL-Project/
 └── README.md
 ```
 
-### Repository Overview
+### 📂 Repository Overview
 
-| Folder | Description |
-|---------|-------------|
-| **datasets/** | Contains CRM and ERP source datasets used for building the warehouse. |
-| **docs/** | Project documentation, architecture diagrams, and data flow illustrations. |
-| **scripts/bronze/** | SQL scripts for creating Bronze tables and loading raw source data. |
-| **scripts/silver/** | SQL scripts for cleansing, validating, and transforming Bronze data. |
-| **scripts/gold/** | SQL scripts for creating Fact tables, Dimension tables, and analytical views. |
-| **init_database.sql** | Initializes the database, schemas, and project setup. |
-| **README.md** | Complete project documentation. |
+| Directory / File | Description |
+|------------------|-------------|
+| **datasets/source_crm/** | Contains raw CRM source datasets used as input for the ETL pipeline. |
+| **datasets/source_erp/** | Contains raw ERP source datasets used as input for the ETL pipeline. |
+| **docs/** | Stores project documentation, architecture diagrams, data flow illustrations, Draw.io files, and design artifacts. |
+| **scripts/bronze/** | Creates Bronze layer tables and loads raw CRM & ERP data using ETL stored procedures. |
+| **scripts/silver/** | Creates Silver layer tables and transforms raw data into clean, standardized datasets. |
+| **scripts/gold/** | Creates the Gold layer, including Fact and Dimension tables following a Star Schema design. |
+| **scripts/tests/** | Contains SQL-based data quality validation scripts for the Silver and Gold layers. |
+| **LICENSE** | Defines the licensing terms for using and distributing this project. |
+| **README.md** | Provides complete project documentation, architecture, setup instructions, and implementation details. |
 
 ---
-
----
-
-# ⚙️ ETL Pipeline
-
-The project implements a robust **Extract, Transform, Load (ETL)** pipeline using **PostgreSQL Stored Procedures** to automate data movement across the Bronze, Silver, and Gold layers.
-
-The ETL process is designed to ensure that raw operational data is systematically transformed into reliable, business-ready datasets while maintaining consistency, scalability, and data quality.
-
-### ETL Workflow
-
-```text
-Extract
-   │
-   ▼
-CRM & ERP Source Data
-   │
-   ▼
-Load into Bronze Layer
-   │
-   ▼
-Data Cleaning & Standardization
-   │
-   ▼
-Silver Layer
-   │
-   ▼
-Business Transformations
-   │
-   ▼
-Gold Layer
-   │
-   ▼
-Analytics Ready Data
-```
-
-### ETL Highlights
-
-- Automated data loading using Stored Procedures
-- Layer-by-layer transformation pipeline
-- Modular and reusable SQL scripts
-- Structured execution flow
-- Optimized for maintainability and scalability
 
 ---
 
