@@ -34,6 +34,10 @@ The project emphasizes clean architecture, data quality validation, reusable SQL
 
 ---
 
+<p align="center">
+    <img src="docs/data_architecture.png" width="950">
+</p>
+
 ## 🎯 Project Objectives
 
 - Build a modern Data Warehouse using PostgreSQL.
