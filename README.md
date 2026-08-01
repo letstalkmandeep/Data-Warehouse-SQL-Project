@@ -62,3 +62,126 @@ This project focuses on creating clear architecture, data validation, reusing SQ
 | Git & GitHub | Version Control |
 
 ---
+
+---
+
+# 🏛️ Data Warehouse Architecture
+
+The project follows a **Modern Medallion Architecture** that transforms raw CRM and ERP datasets into trusted, analytics-ready data through three distinct layers: **Bronze**, **Silver**, and **Gold**.
+
+Each layer has a specific responsibility to ensure data quality, scalability, and maintainability.
+
+<p align="center">
+    <img src="docs/data-architecture.png" alt="Data Warehouse Architecture" width="950"/>
+</p>
+
+### Architecture Layers
+
+| Layer | Purpose |
+|-------|---------|
+| 🥉 Bronze | Stores raw data ingested directly from CRM and ERP source systems without modification. |
+| 🥈 Silver | Cleanses, standardizes, validates, and transforms raw data into consistent datasets. |
+| 🥇 Gold | Creates business-ready dimensional models using Fact and Dimension tables for analytical workloads. |
+
+### Key Design Principles
+
+- Layered Medallion Architecture
+- Separation of Raw and Business Data
+- Automated ETL using Stored Procedures
+- Data Quality Validation
+- Star Schema Data Modeling
+- Modular and Scalable Design
+
+---
+
+# 🔄 Data Flow
+
+The ETL pipeline integrates multiple operational systems into a centralized Data Warehouse following a structured transformation process.
+
+<p align="center">
+    <img src="docs/data-flow.png" alt="Data Flow" width="900"/>
+</p>
+
+### ETL Workflow
+
+```text
+CRM & ERP Source Data
+          │
+          ▼
+   Stored Procedure ETL
+          │
+          ▼
+   Bronze Layer (Raw Data)
+          │
+          ▼
+Silver Layer (Clean & Standardized)
+          │
+          ▼
+Gold Layer (Star Schema)
+          │
+          ▼
+Business Ready Data
+```
+
+### Data Processing Pipeline
+
+- Extract data from CRM and ERP source systems.
+- Load raw data into the Bronze layer.
+- Perform data cleansing, validation, and transformation in the Silver layer.
+- Build Fact and Dimension tables in the Gold layer.
+- Deliver trusted datasets for Business Intelligence and Data Analytics.
+
+---
+
+# 📂 Repository Structure
+
+```text
+Data-Warehouse-SQL-Project/
+│
+├── datasets/
+│   ├── source_crm/
+│   └── source_erp/
+│
+├── docs/
+│   ├── data-architecture.png
+│   ├── data-flow.png
+│   └── *.drawio
+│
+├── scripts/
+│   │
+│   ├── bronze/
+│   │   ├── ddl_bronze.sql
+│   │   ├── proc_load_bronze.sql
+│   │   └── bronze_quality_checks.sql
+│   │
+│   ├── silver/
+│   │   ├── ddl_silver.sql
+│   │   ├── proc_load_silver.sql
+│   │   └── silver_quality_checks.sql
+│   │
+│   ├── gold/
+│   │   ├── ddl_gold.sql
+│   │   ├── dim_customers.sql
+│   │   ├── dim_products.sql
+│   │   ├── fact_sales.sql
+│   │   └── create_views.sql
+│   │
+│   └── init_database.sql
+│
+├── LICENSE
+└── README.md
+```
+
+### Repository Overview
+
+| Folder | Description |
+|---------|-------------|
+| **datasets/** | Contains CRM and ERP source datasets used for building the warehouse. |
+| **docs/** | Project documentation, architecture diagrams, and data flow illustrations. |
+| **scripts/bronze/** | SQL scripts for creating Bronze tables and loading raw source data. |
+| **scripts/silver/** | SQL scripts for cleansing, validating, and transforming Bronze data. |
+| **scripts/gold/** | SQL scripts for creating Fact tables, Dimension tables, and analytical views. |
+| **init_database.sql** | Initializes the database, schemas, and project setup. |
+| **README.md** | Complete project documentation. |
+
+---
