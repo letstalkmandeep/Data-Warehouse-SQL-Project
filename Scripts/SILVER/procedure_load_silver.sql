@@ -76,6 +76,7 @@ BEGIN
 	RAISE NOTICE '            >>>>>LOADING - TABLE CST_INFO<<<<<<<         ';
 	
 	insert into silver.crm_cst_info
+	select * from (
 	select
 		cst_id,
 		cst_key,
@@ -98,7 +99,10 @@ BEGIN
 		row_number() over(partition by cst_id order by cst_create_date desc) as latest
 		from bronze.crm_cst_info
 	)
-	where latest = 1;
+	where latest = 1
+	)
+	where cst_id is not null
+	;
 	
 	
 	
