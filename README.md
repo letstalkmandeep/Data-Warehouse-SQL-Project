@@ -228,15 +228,9 @@ Data is organized using a **Star Schema**, consisting of **Fact** and **Dimensio
 
 ### Dimensional Model
 
-```text
-              Dimension Customer
-                     │
-                     │
-Dimension Product ─ Fact Sales ─ Dimension Date
-                     │
-                     │
-             Dimension Territory
-```
+<p align="center">
+    <img src="docs/sales_data_mart.png" alt="Dimenstional Model" width="900"/>
+</p>
 
 ---
 
