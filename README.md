@@ -130,30 +130,31 @@ Data-Warehouse-SQL-Project/
 │   └── source_erp/
 │
 ├── docs/
-│   ├── data-architecture.png
-│   ├── data-flow.png
+│   ├── data_architecture.png
+│   ├── data_inetgration.png
+│   ├── sales_data_mart.png
+│   ├── data_flow.png
 │   └── *.drawio
 │
 ├── scripts/
 │   │
 │   ├── bronze/
 │   │   ├── ddl_bronze.sql
-│   │   ├── proc_load_bronze.sql
-│   │   └── bronze_quality_checks.sql
+│   │   └── procedure_load_bronze.sql
+│   │   
 │   │
 │   ├── silver/
 │   │   ├── ddl_silver.sql
-│   │   ├── proc_load_silver.sql
-│   │   └── silver_quality_checks.sql
+│   │   └── procedure_load_silver.sql
+│   │   
 │   │
 │   ├── gold/
-│   │   ├── ddl_gold.sql
-│   │   ├── dim_customers.sql
-│   │   ├── dim_products.sql
-│   │   ├── fact_sales.sql
-│   │   └── create_views.sql
+│   │   └── ddl_gold.sql
 │   │
-│   └── init_database.sql
+│   │
+│   ├── tests/
+│   │   ├── quality_checks_silver.sql
+│   │   └── quality_checks_gold.sql
 │
 ├── LICENSE
 └── README.md
