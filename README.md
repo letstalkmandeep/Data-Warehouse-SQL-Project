@@ -372,7 +372,7 @@ For more information, see the **LICENSE** file in this repository.
 
 <p align="center">
 <a href="https://www.linkedin.com/in/mandeep-singh-56333937b">
-<img src="https://img.shields.io/badge/LinkedIn-Mandeep%20Singh-lightgrey?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0077B5"/>
+<img src="https://img.shields.io/badge/LinkedIn-View%20Profile-lightgrey?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0077B5"/>
 </a>
 </p>
 
