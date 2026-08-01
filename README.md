@@ -72,7 +72,7 @@ The project follows a **Modern Medallion Architecture** that transforms raw CRM 
 Each layer has a specific responsibility to ensure data quality, scalability, and maintainability.
 
 <p align="center">
-    <img src="docs/data-architecture.png" alt="Data Warehouse Architecture" width="950"/>
+    <img src="docs/data_architecture.png" alt="Data Warehouse Architecture" width="950"/>
 </p>
 
 ### Architecture Layers
